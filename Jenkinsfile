@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    node "Built-In Node"
     options {
         skipStagesAfterUnstable()
     }
