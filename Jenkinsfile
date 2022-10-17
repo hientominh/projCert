@@ -37,7 +37,7 @@ node('slave') {
             }
         }
         stage('deploy') {
-            sh 'docker stop phpapp && docker container rm phpapp && docker run -it -d -n phpapp tominhhien1/phpapp:latest'
+            sh 'docker run -it -d -n phpapp tominhhien1/phpapp:latest'
         }
     }
     catch (err) {
