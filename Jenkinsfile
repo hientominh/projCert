@@ -5,6 +5,10 @@ node('master') {
         }
     }
 
+    stage('provision test server'){
+        sh 'cd docker-playbook && ansible-playbook install-playbook.yml -i inventory.txt'
+    }
+
     stage('Build') { 
         script{
             app = docker.build("tominhhien1/phpapp")
