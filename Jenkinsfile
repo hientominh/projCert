@@ -29,12 +29,7 @@ node('slave') {
 
     try {
         stage('Pull') {
-            script{
-                    docker.withRegistry('https://index.docker.io/v1/', 'ed865ac2-f8ef-489f-ab77-11a816a18c78') {
-                        app.pull("${env.BUILD_NUMBER}")
-                        app.pull("latest")
-                    }
-            }
+            sh "docker pull tominhhien1/phpapp:latest"
         }
         stage('deploy') {
             sh 'docker run -it -d -n phpapp tominhhien1/phpapp:latest'
