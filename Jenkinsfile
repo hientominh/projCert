@@ -38,7 +38,7 @@ node('slave') {
             echo 'Container does not exist'
         }
         stage('deploy') {
-            sh 'docker run -it -d --name phpapp tominhhien1/phpapp:latest'
+            sh 'docker run -it -d --name phpapp -p 8888:80 tominhhien1/phpapp:latest'
         }
     }
     catch (err) {
