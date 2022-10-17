@@ -1,4 +1,4 @@
-node('Built-In Node') {
+node('master') {
     stages {
         stage('Clone repository') { 
             steps { 
