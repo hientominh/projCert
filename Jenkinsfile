@@ -31,8 +31,14 @@ node('slave') {
         stage('Pull') {
             sh "docker pull tominhhien1/phpapp:latest"
         }
+        try {
+            sh 'docker stop phpapp && docker container rm phpapp'
+        }
+        catch (err){
+            echo 'Container does not exist'
+        }
         stage('deploy') {
-            sh 'docker run -it -d -n phpapp tominhhien1/phpapp:latest'
+            sh 'docker run -it -d --name phpapp tominhhien1/phpapp:latest'
         }
     }
     catch (err) {
