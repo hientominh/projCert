@@ -1,0 +1,9 @@
+---
+# tasks file for docker-uninstallation
+- name: "copy docker uninstallation script"
+  template:
+    src: uninstall_command.sh
+    dest: /tmp/uninstall_command.sh
+
+- name: "run script to uninstall docker"
+  command: /bin/bash /tmp/uninstall_command.sh

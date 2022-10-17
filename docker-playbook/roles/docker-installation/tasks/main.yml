@@ -1,0 +1,9 @@
+---
+# tasks file for docker-installation
+- name: "copy docker installation script"
+  template:
+    src: install_command.sh
+    dest: /tmp/install_command.sh
+
+- name: "run script to install docker"
+  command: /bin/bash /tmp/install_command.sh
